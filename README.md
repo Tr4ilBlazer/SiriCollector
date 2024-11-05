@@ -1,71 +1,101 @@
-Browser Data Collector
-This script, BrowserDataCollector, extracts and saves browsing data from Chrome, Firefox, and Edge browsers on Windows. The data includes history and autofill information, making it useful for analyzing browsing patterns or backing up browser data.
 
-Features
-Extract Browser Data: Supports Chrome, Firefox, and Edge. Retrieves:
-History: URLs visited, titles, visit counts, and last visit times.
-Autofill (Chrome and Edge only): Autofill names and values.
-Data Export: Saves data to JSON files or a centralized SQLite database.
-Cross-Browser Support: Automatically detects installed browser profiles and retrieves data accordingly.
-Prerequisites
-Python 3.x: Ensure Python is installed on your machine.
-Operating System: Windows (uses Windows-specific paths for browser data).
-Installation
-Clone or Download this repository.
-Navigate to the project directory.
-Install dependencies (only standard libraries are used, so no installations are required).
-For custom installations, create and activate a virtual environment (optional):
+---
 
-bash
-Copy code
-python -m venv env
-source env/bin/activate  # For MacOS/Linux
-env\Scripts\activate     # For Windows
-Install the required libraries:
-bash
-Copy code
-pip install -r requirements.txt
-Usage
-Initialization:
+# 🧭 Browser Data Collector
 
-Initialize the script by creating a BrowserDataCollector instance. This automatically sets up a timestamped output directory for storing collected data.
-Data Collection:
+`BrowserDataCollector` is a Python-based tool for extracting and saving browsing data from **Chrome**, **Firefox**, and **Edge** browsers on Windows. The tool collects browsing history and autofill information, making it valuable for backing up browser data or conducting data analysis.
 
-Use collect_all_data() to gather history data across supported browsers and save it into a central database.
-Output:
+---
 
-The output directory will be named browser_data_YYYYMMDD_HHMMSS with a timestamp of the current date and time.
-Each browser's data will be saved in JSON files, such as chrome_data.json, firefox_data.json, and edge_data.json.
-Example
-To run the script, use the following command:
+## ✨ Features
 
-python
-Copy code
+- **Browser Data Extraction**: Supports Chrome, Firefox, and Edge, collecting:
+  - **History**: URLs, titles, visit counts, and last visit times.
+  - **Autofill (Chrome and Edge)**: Autofill names and values.
+- **Data Export**: Saves extracted data to JSON files or a centralized SQLite database.
+- **Cross-Browser Support**: Automatically detects installed profiles and gathers data from each.
+
+## 🛠 Prerequisites
+
+- **Python 3.x**: Ensure Python is installed on your machine.
+- **Operating System**: Windows (uses Windows-specific paths for browser data).
+  
+## 📦 Installation
+
+1. **Clone or Download** this repository:
+   ```bash
+   git clone https://github.com/yourusername/BrowserDataCollector.git
+   cd BrowserDataCollector
+   ```
+
+2. **Create and Activate** a virtual environment (optional but recommended):
+   ```bash
+   python -m venv env
+   source env/bin/activate      # MacOS/Linux
+   env\Scripts\activate         # Windows
+   ```
+
+3. **Install Requirements**: Run the following command to install any required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+   
+   > **Note**: No external libraries are required as the script uses Python's standard library. If dependencies are added in the future, they will be listed in `requirements.txt`.
+
+---
+
+## 🚀 Usage
+
+1. **Initialize**: Create a `BrowserDataCollector` instance to set up a timestamped output directory for data storage.
+2. **Collect Data**: Use `collect_all_data()` to gather data across browsers and save it to a central database.
+3. **Output**: Collected data is saved in an output directory named `browser_data_YYYYMMDD_HHMMSS`.
+
+### 🔍 Example
+
+Run the script with:
+```bash
 python script_name.py
-Upon execution, the script will print the location of the output directory.
+```
 
-Methods
-get_chrome_history()
-Retrieves Chrome browsing history.
+After execution, the script will output the directory path where data has been saved.
 
-get_chrome_autofill()
-Retrieves Chrome autofill data.
+---
 
-get_edge_history()
-Retrieves Edge browsing history.
+## 📖 Method Overview
 
-get_edge_autofill()
-Retrieves Edge autofill data.
+- ### `get_chrome_history()`
+   Retrieves Chrome browsing history.
 
-get_firefox_history()
-Retrieves Firefox browsing history.
+- ### `get_chrome_autofill()`
+   Retrieves Chrome autofill data.
 
-get_browser_data(browser, db_name, profile_path, history_query=None, autofill_query=None)
-Handles database operations for extracting history or autofill data from the specified browser and profile.
+- ### `get_edge_history()`
+   Retrieves Edge browsing history.
 
-collect_all_data()
-Collects browsing history for all supported browsers and saves it into the output folder.
+- ### `get_edge_autofill()`
+   Retrieves Edge autofill data.
 
-Error Handling
-If a browser or profile folder is not found, or if there are errors accessing the data files, the script will log an error message and continue processing other browsers.
+- ### `get_firefox_history()`
+   Retrieves Firefox browsing history.
 
+- ### `get_browser_data(browser, db_name, profile_path, history_query=None, autofill_query=None)`
+   Handles database operations for extracting history or autofill data from the specified browser and profile.
+
+- ### `collect_all_data()`
+   Collects browsing history for all supported browsers and saves it into the output folder.
+
+---
+
+## 📂 Error Handling
+
+If a browser or profile folder is not found, or if there are errors accessing data files, the script will log an error message and continue processing other browsers.
+
+---
+
+## 📝 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+**Disclaimer**: Ensure appropriate permissions when running this script, especially if you are accessing shared system directories. This script does not decrypt protected or encrypted browser data.
