@@ -95,7 +95,3 @@ If a browser or profile folder is not found, or if there are errors accessing da
 ## 📝 License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-**Disclaimer**: Ensure appropriate permissions when running this script, especially if you are accessing shared system directories. This script does not decrypt protected or encrypted browser data.
