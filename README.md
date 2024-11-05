@@ -68,3 +68,4 @@ Collects browsing history for all supported browsers and saves it into the outpu
 
 Error Handling
 If a browser or profile folder is not found, or if there are errors accessing the data files, the script will log an error message and continue processing other browsers.
+
